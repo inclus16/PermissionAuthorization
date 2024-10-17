@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermissionAuthorization", "PermissionAuthorization.csproj", "{D5FDE3D6-FC77-43AA-8708-24E0C289C81B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermissionAuthorization.Tests", "Tests\PermissionAuthorization.Tests.csproj", "{58C72B08-7EBF-4A52-B1CC-CACD0FC0A8B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5FDE3D6-FC77-43AA-8708-24E0C289C81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FDE3D6-FC77-43AA-8708-24E0C289C81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FDE3D6-FC77-43AA-8708-24E0C289C81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FDE3D6-FC77-43AA-8708-24E0C289C81B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94AF0A03-67C1-4F7F-9DEA-61F3A6FD733C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94AF0A03-67C1-4F7F-9DEA-61F3A6FD733C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94AF0A03-67C1-4F7F-9DEA-61F3A6FD733C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94AF0A03-67C1-4F7F-9DEA-61F3A6FD733C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C72B08-7EBF-4A52-B1CC-CACD0FC0A8B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C72B08-7EBF-4A52-B1CC-CACD0FC0A8B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C72B08-7EBF-4A52-B1CC-CACD0FC0A8B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C72B08-7EBF-4A52-B1CC-CACD0FC0A8B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
