@@ -4,6 +4,8 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>1.0.0-alpha</Version>
+        <RepositoryUrl>https://github.com/inclus16/PermissionAuthorization</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
