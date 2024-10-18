@@ -13,33 +13,8 @@ on:
       - '*'
   release:
     types:
-      - published 
-    
-env:
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-  DOTNET_NOLOGO: true
-  NuGetDirectory: ${{ github.workspace}}/nuget
-
-defaults:
-  run:
-    shell: pwsh
-    
+      - published    
 jobs:
-  create_nuget:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-    - run: dotnet pack --configuration Release --output ${{ env.NuGetDirectory }}
-    - uses: actions/upload-artifact@v3
-      with:
-        name: nuget
-        if-no-files-found: error
-        retention-days: 7
-        path: ${{ env.NuGetDirectory }}/*.nupkg
   run_test:
     runs-on: ubuntu-latest
     steps:
@@ -53,14 +28,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ run_test ]
     steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: nuget
-          path: ${{ env.NuGetDirectory }}
-      - name: Setup .NET Core
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup .NET Core @ Latest
         uses: actions/setup-dotnet@v4
-      - name: Publish NuGet package
-        run: |
-          foreach($file in (Get-ChildItem "${{ env.NuGetDirectory }}" -Recurse -Include *.nupkg)) {
-              dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-          }  
+        with:
+          source-url: https://nuget.pkg.github.com/inclus16/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Build solution and generate NuGet package
+        run: dotnet pack -c Release -o out  
+      - name: Push generated package to GitHub registry
+        run: dotnet nuget push ./inclus16/out/*.nupkg --skip-duplicate --no-symbols true
